@@ -1,11 +1,15 @@
 import { useState } from "react";
 import { Layout, Menu, Button } from "antd";
 import { Link, useLocation } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
+import { selectCurrentUser, setUser } from "../redux/features/auth/authSlice";
 
 const { Header } = Layout;
 
 const Navbar = () => {
-  const isAuthenticated = false;
+  const user = useAppSelector(selectCurrentUser);
+  const dispatch = useAppDispatch();
+  console.log(user);
   const location = useLocation();
   const [current, setCurrent] = useState(location.pathname);
 
@@ -14,7 +18,7 @@ const Navbar = () => {
   };
 
   const handleLogout = () => {
-    // Implement logout logic here
+    dispatch(setUser({ user: null, token: null }));
   };
 
   return (
@@ -35,7 +39,7 @@ const Navbar = () => {
         <Menu.Item key="/all-relief-goods">
           <Link to="/all-relief-goods">All Relief Goods</Link>
         </Menu.Item>
-        {isAuthenticated ? (
+        {user?.email ? (
           <>
             <Menu.Item key="/dashboard">
               <Link to="/dashboard">Dashboard</Link>
