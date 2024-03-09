@@ -14,8 +14,10 @@ type Props = {
 };
 const ReliefCards: React.FC<Props> = ({ posts }) => {
   return (
-    <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
-      <Row gutter={16}>
+    <div
+      style={{ maxWidth: "1280px", margin: "0 auto", paddingInline: "20px" }}
+    >
+      <Row gutter={20}>
         {posts?.slice(0, 6).map((post) => (
           <Col key={post._id} xs={24} sm={12} md={8} lg={8} xl={8}>
             <Card
