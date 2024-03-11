@@ -1,4 +1,5 @@
 import { Card, Button, Row, Col } from "antd";
+import { Link } from "react-router-dom";
 
 const { Meta } = Card;
 type ReliefCardType = {
@@ -30,9 +31,10 @@ const ReliefCards: React.FC<Props> = ({ posts }) => {
                 description={`Category: ${post.category}`}
               />
               <p>Amount: {post.amount}</p>
-              <Button type="primary" style={{ marginRight: "10px" }}>
+              <Link to={`/relief-details/${post._id}`}>View Details</Link>
+              {/* <Button type="primary" style={{ marginRight: "10px" }}>
                 View Detail
-              </Button>
+              </Button> */}
             </Card>
           </Col>
         ))}

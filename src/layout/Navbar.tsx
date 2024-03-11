@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
-import { Layout, Menu, Button } from "antd";
+import { Layout, Menu, Button, Avatar } from "antd";
 import { Link, useLocation } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { selectCurrentUser, setUser } from "../redux/features/auth/authSlice";
@@ -13,7 +14,7 @@ const Navbar = () => {
   const location = useLocation();
   const [current, setCurrent] = useState(location.pathname);
 
-  const handleMenuClick = (e) => {
+  const handleMenuClick = (e: any) => {
     setCurrent(e.key);
   };
 
@@ -27,9 +28,12 @@ const Navbar = () => {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
+        paddingInline: "10px",
       }}
     >
-      <div style={{ color: "white" }}>Brand Logo</div>
+      <div style={{ color: "white" }}>
+        <Avatar src="https://th.bing.com/th/id/OIP.pR744FyVUmn4iZjuDfnqHAHaHa?w=175&h=180&c=7&r=0&o=5&pid=1.7" />
+      </div>
       <Menu
         theme="dark"
         mode="horizontal"

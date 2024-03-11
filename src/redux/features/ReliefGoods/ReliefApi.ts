@@ -11,7 +11,16 @@ const ReliefApi = baseApi.injectEndpoints({
       },
       providesTags: ["ReliefGoods"],
     }),
+    getSingleSupply: builder.query({
+      query: (id) => {
+        console.log(id);
+        return {
+          url: `/getSingleSupply/${id}`,
+          method: "GET",
+        };
+      },
+    }),
   }),
 });
 
-export const { useGetAllSupplyQuery } = ReliefApi;
+export const { useGetAllSupplyQuery, useGetSingleSupplyQuery } = ReliefApi;
