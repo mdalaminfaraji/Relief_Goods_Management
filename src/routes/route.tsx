@@ -4,6 +4,7 @@ import Home from "../pages/Home/Home";
 import Login from "../pages/auth/Login";
 import Register from "../pages/auth/Register";
 import ReliefDetails from "../pages/reliefs/ReliefDetails";
+import ReliefGoods from "../pages/reliefs/ReliefGoods";
 
 export const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
       {
         path: "relief-details/:id",
         element: <ReliefDetails />,
+      },
+      {
+        path: "relief-goods",
+        element: <ReliefGoods />,
       },
     ],
   },

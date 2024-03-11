@@ -11,7 +11,7 @@ const ReliefDetails = () => {
   if (isError) {
     return <p>something went wrong... </p>;
   }
-  console.log(data);
+
   return <ReliefInformation data={data} />;
 };
 

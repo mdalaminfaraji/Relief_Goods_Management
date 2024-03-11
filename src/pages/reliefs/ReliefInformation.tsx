@@ -3,7 +3,6 @@
 import { Button, Col, Image, Row } from "antd";
 
 const ReliefInformation = ({ data }: any) => {
-  console.log(data);
   return (
     <div
       style={{ maxWidth: "1280px", margin: "0 auto", paddingInline: "10px" }}

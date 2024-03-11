@@ -40,8 +40,8 @@ const Navbar = () => {
         selectedKeys={[current]}
         onClick={handleMenuClick}
       >
-        <Menu.Item key="/all-relief-goods">
-          <Link to="/all-relief-goods">All Relief Goods</Link>
+        <Menu.Item key="/relief-goods">
+          <Link to="/relief-goods">All Relief Goods</Link>
         </Menu.Item>
         {user?.email ? (
           <>
