@@ -5,6 +5,7 @@ import Login from "../pages/auth/Login";
 import Register from "../pages/auth/Register";
 import ReliefDetails from "../pages/reliefs/ReliefDetails";
 import ReliefGoods from "../pages/reliefs/ReliefGoods";
+import DashboardLayout from "../layout/DashboardLayout";
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +31,16 @@ export const router = createBrowserRouter([
       {
         path: "relief-goods",
         element: <ReliefGoods />,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: <DashboardLayout />,
+    children: [
+      {
+        index: true,
+        element: <p>I am</p>,
       },
     ],
   },
