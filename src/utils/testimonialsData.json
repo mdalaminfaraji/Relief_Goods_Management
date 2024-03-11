@@ -4,41 +4,41 @@
     "fullName": "John Doe",
     "title": "CEO, Company A",
     "description": "I am grateful for your help in easing the suffering of those affected by the recent disaster. I hope that these supplies will make a significant difference in the lives of those who need them.",
-    "imageUrl": "john.jpg"
+    "imageUrl": "https://th.bing.com/th/id/OIP.ntzGohTfvU6Jn50XXxFHBgHaJA"
   },
   {
     "id": 2,
     "fullName": "Jane Smith",
     "title": "CFO, Company B",
     "description": "Sed cursus eros a felis vehicula, nec posuere urna bibendum. Donec et ipsum at justo faucibus gravida non non odio.",
-    "imageUrl": "jane.jpg"
+    "imageUrl": "https://images.squarespace-cdn.com/content/v1/5e8551bd6f5c22215fa442b6/1589165316068-LM6ZYS6Y3B5BP1CCJCZ4/ke17ZwdGBToddI8pDm48kAf-OpKpNsh_OjjU8JOdDKBZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpzAFzFJoCInLPKyj9AG8yKe7-Q2aFvP177fkO9TY_-rz5WoqqTEZpmj4yDEOdwKV68/Antony+Loewenstein.jpg"
   },
   {
     "id": 3,
     "fullName": "Alice Johnson",
     "title": "CTO, Company C",
     "description": "Nullam sodales ligula in ligula iaculis, eu sagittis urna dapibus. Proin tincidunt elit at odio tincidunt varius.",
-    "imageUrl": "alice.jpg"
+    "imageUrl": "https://th.bing.com/th/id/OIP.E7ngAEk_6-YkQV_1-HjpmwAAAA"
   },
   {
     "id": 4,
     "fullName": "Mike Wilson",
     "title": "COO, Company D",
     "description": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum mattis justo non ipsum luctus.",
-    "imageUrl": "mike.jpg"
+    "imageUrl": "https://media.licdn.com/dms/image/C5603AQFfyW9f-4rLGQ/profile-displayphoto-shrink_800_800/0/1658440494260?e=2147483647&v=beta&t=IRqWcUvNYwF_2mQgxZQ8nxsqYOCAkltukL679c2tVDU"
   },
   {
     "id": 5,
     "fullName": "Emily Brown",
     "title": "VP Marketing, Company E",
     "description": "Quisque vitae mi interdum, consectetur ipsum et, vulputate lorem. Integer tincidunt sapien quis ligula posuere consectetur.",
-    "imageUrl": "emily.jpg"
+    "imageUrl": "https://assets.irinnews.org/s3fs-public/alex_0.jpeg?.lV.TmJu4GjTZ1ontt43UYsu2vpPXnOP"
   },
   {
     "id": 6,
     "fullName": "David Lee",
     "title": "VP Operations, Company F",
     "description": "Vivamus placerat justo at eros tempor, quis congue sapien tempor. Maecenas rhoncus augue vitae est posuere blandit.",
-    "imageUrl": "david.jpg"
+    "imageUrl": "https://th.bing.com/th/id/OIP.BbAxofWclGSiUsTnWG4rXAHaHj?w=768&h=783&rs=1&pid=ImgDetMain"
   }
 ]
