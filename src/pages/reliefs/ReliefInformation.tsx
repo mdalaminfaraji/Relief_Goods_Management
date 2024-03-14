@@ -1,8 +1,21 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { Button, Col, Image, Row } from "antd";
+import { Button, Col, Image, Modal, Row } from "antd";
+import Paragraph from "antd/es/typography/Paragraph";
+import { useState } from "react";
 
 const ReliefInformation = ({ data }: any) => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const handleDonateNow = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleConfirmDonate = () => {
+    setIsModalVisible(false);
+
+    window.location.href = "/dashboard";
+  };
+
   return (
     <div
       style={{ maxWidth: "1280px", margin: "0 auto", paddingInline: "10px" }}
@@ -35,7 +48,9 @@ const ReliefInformation = ({ data }: any) => {
               </span>{" "}
               {data?.data?.description}
             </p>
-            <Button type="primary">Donate Now</Button>
+            <Button type="primary" onClick={handleDonateNow}>
+              Donate Now
+            </Button>
           </div>
         </Col>
 
@@ -47,6 +62,22 @@ const ReliefInformation = ({ data }: any) => {
           />
         </Col>
       </Row>
+      <Modal
+        title="Confirm Donation"
+        visible={isModalVisible}
+        onCancel={() => setIsModalVisible(false)}
+        footer={[
+          <Button key="cancel" onClick={() => setIsModalVisible(false)}>
+            Cancel
+          </Button>,
+          <Button key="confirm" type="primary" onClick={handleConfirmDonate}>
+            Confirm
+          </Button>,
+        ]}
+      >
+        <Paragraph>Are you sure you want to donate to this cause?</Paragraph>
+        {/* Additional user information and relief goods data can be displayed here */}
+      </Modal>
     </div>
   );
 };

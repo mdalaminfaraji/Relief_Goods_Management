@@ -8,6 +8,7 @@ import ReliefGoods from "../pages/reliefs/ReliefGoods";
 import DashboardLayout from "../layout/DashboardLayout";
 import CreateSupply from "../pages/dashboard/CreateSupply/CreateSupply";
 import Supplies from "../pages/dashboard/Supplies/Supplies";
+import DashboardChart from "../pages/dashboard/Chart/DashboardChart";
 
 export const router = createBrowserRouter([
   {
@@ -42,7 +43,7 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <p>I am</p>,
+        element: <DashboardChart />,
       },
       {
         path: "create-supply",

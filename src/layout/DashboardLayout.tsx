@@ -1,6 +1,10 @@
-import { DatabaseOutlined, UploadOutlined } from "@ant-design/icons";
-import { Layout, Menu, theme } from "antd";
-import { NavLink, Outlet } from "react-router-dom";
+import {
+  DatabaseOutlined,
+  HomeOutlined,
+  UploadOutlined,
+} from "@ant-design/icons";
+import { Layout, Menu } from "antd";
+import { Link, NavLink, Outlet } from "react-router-dom";
 
 const { Content, Sider } = Layout;
 
@@ -26,25 +30,17 @@ const items = [
     icon: <DatabaseOutlined />,
     label: <NavLink to="/dashboard/supplies">Supplies</NavLink>,
   },
+  {
+    key: 3,
+    icon: <HomeOutlined />,
+    label: <NavLink to="/">Home</NavLink>,
+  },
 ];
 
 const DashboardLayout = () => {
-  const {
-    token: { colorBgContainer, borderRadiusLG },
-  } = theme.useToken();
   return (
     <Layout>
-      <Sider
-        breakpoint="lg"
-        collapsedWidth="0"
-        onBreakpoint={(broken) => {
-          console.log(broken);
-        }}
-        onCollapse={(collapsed, type) => {
-          console.log(collapsed, type);
-        }}
-        style={{ height: "100vh" }}
-      >
+      <Sider breakpoint="lg" collapsedWidth="0" style={{ height: "100vh" }}>
         <div
           style={{
             color: "white",
@@ -54,7 +50,9 @@ const DashboardLayout = () => {
             alignItems: "center",
           }}
         >
-          <h2>Relief Goods</h2>
+          <Link to="/dashboard">
+            <h2>Relief Goods</h2>
+          </Link>
         </div>
         <Menu
           theme="dark"
@@ -69,8 +67,6 @@ const DashboardLayout = () => {
             style={{
               padding: 24,
               minHeight: 360,
-              background: colorBgContainer,
-              borderRadius: borderRadiusLG,
             }}
           >
             <Outlet />

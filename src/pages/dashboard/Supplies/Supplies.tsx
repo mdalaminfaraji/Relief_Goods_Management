@@ -5,7 +5,7 @@ import {
   useEditSupplyMutation,
   useGetAllSupplyQuery,
 } from "../../../redux/features/ReliefGoods/ReliefApi";
-import { Table, Button, Modal } from "antd";
+import { Table, Button, Modal, Divider, message } from "antd";
 import EditSupplyForm from "./EditSupplyForm";
 type Supply = {
   _id: string;
@@ -89,22 +89,35 @@ const Supplies = () => {
   };
 
   const confirmDelete = () => {
-    deleteSupply(deleteId);
-    // Logic to delete the selected supply post
-    setIsDeleteModalVisible(false);
+    try {
+      deleteSupply(deleteId);
+      message.success("Supply post  successfully deleted!");
+      setIsDeleteModalVisible(false);
+    } catch (error) {
+      message.error("Failed to deleted supply post. Please try again.");
+      setIsDeleteModalVisible(false);
+    }
   };
   const handleSaveEdit = (editedSupply: Supply) => {
     // Logic to update the supply post on backend
-    const data = {
-      body: editedSupply,
-      id: editId,
-    };
-    editSupply(data);
-    console.log(editedSupply, editId);
-    setIsEditModalVisible(false);
+
+    try {
+      const data = {
+        body: editedSupply,
+        id: editId,
+      };
+      editSupply(data);
+      message.success("Supply post Updated successfully!");
+      setIsEditModalVisible(false);
+    } catch (error) {
+      message.error("Failed to update supply post. Please try again.");
+      setIsEditModalVisible(false);
+    }
   };
   return (
     <div>
+      <h1 style={{ textAlign: "center" }}>All Relief Goods Information</h1>
+      <Divider />
       <Table columns={columns} dataSource={suppliesData} />
 
       <EditSupplyForm

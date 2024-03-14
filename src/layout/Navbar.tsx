@@ -32,7 +32,10 @@ const Navbar = () => {
       }}
     >
       <div style={{ color: "white" }}>
-        <Avatar src="https://th.bing.com/th/id/OIP.pR744FyVUmn4iZjuDfnqHAHaHa?w=175&h=180&c=7&r=0&o=5&pid=1.7" />
+        <Link to="/">
+          {" "}
+          <Avatar src="https://th.bing.com/th/id/OIP.pR744FyVUmn4iZjuDfnqHAHaHa?w=175&h=180&c=7&r=0&o=5&pid=1.7" />
+        </Link>
       </div>
       <Menu
         theme="dark"
