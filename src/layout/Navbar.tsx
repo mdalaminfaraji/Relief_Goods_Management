@@ -10,7 +10,6 @@ const { Header } = Layout;
 const Navbar = () => {
   const user = useAppSelector(selectCurrentUser);
   const dispatch = useAppDispatch();
-  console.log(user);
   const location = useLocation();
   const [current, setCurrent] = useState(location.pathname);
 

@@ -9,6 +9,7 @@ import DashboardLayout from "../layout/DashboardLayout";
 import CreateSupply from "../pages/dashboard/CreateSupply/CreateSupply";
 import Supplies from "../pages/dashboard/Supplies/Supplies";
 import DashboardChart from "../pages/dashboard/Chart/DashboardChart";
+import ProtectedRoute from "./ProtectedRoute";
 
 export const router = createBrowserRouter([
   {
@@ -39,7 +40,11 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <DashboardLayout />,
+    element: (
+      <ProtectedRoute>
+        <DashboardLayout />
+      </ProtectedRoute>
+    ),
     children: [
       {
         index: true,

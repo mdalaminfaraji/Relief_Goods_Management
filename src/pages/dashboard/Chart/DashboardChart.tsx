@@ -78,7 +78,7 @@ const DashboardChart = () => {
             fill="#8884d8"
             label
           >
-            {data.map((entry: any, index: any) => (
+            {data.map((_entry: any, index: any) => (
               <Cell
                 key={`cell-${index}`}
                 fill={COLORS[index % COLORS.length]}

@@ -1,20 +1,48 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { Button, Col, Image, Modal, Row } from "antd";
+import { Button, Col, Image, Modal, Row, Form, Input, message } from "antd";
 import Paragraph from "antd/es/typography/Paragraph";
 import { useState } from "react";
+import { useEditSupplyMutation } from "../../redux/features/ReliefGoods/ReliefApi";
 
 const ReliefInformation = ({ data }: any) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [editSupply] = useEditSupplyMutation();
   const handleDonateNow = () => {
     setIsModalVisible(true);
   };
+  const [form] = Form.useForm();
 
-  const handleConfirmDonate = () => {
-    setIsModalVisible(false);
+  const onFinish = async (value: any) => {
+    try {
+      const previousAmount = parseInt(data?.data?.amount);
+      const newAmount = parseInt(value?.amount);
 
-    window.location.href = "/dashboard";
+      const updateData = {
+        body: { amount: `${previousAmount + newAmount}` },
+        id: data?.data?._id,
+      };
+      const res = await editSupply(updateData);
+      console.log(res);
+      message.success("Donation  successfully Added");
+      setIsModalVisible(false);
+
+      window.location.href = "/dashboard";
+      form.resetFields();
+    } catch (error) {
+      // Handle error
+      message.error("Failed to Donation ");
+    }
   };
+
+  // [
+  //   <Button key="cancel" onClick={() => setIsModalVisible(false)}>
+  //     Cancel
+  //   </Button>,
+  //   <Button key="confirm" type="primary" onClick={handleConfirmDonate}>
+  //     Confirm
+  //   </Button>,
+  // ]
 
   return (
     <div
@@ -66,17 +94,35 @@ const ReliefInformation = ({ data }: any) => {
         title="Confirm Donation"
         visible={isModalVisible}
         onCancel={() => setIsModalVisible(false)}
-        footer={[
-          <Button key="cancel" onClick={() => setIsModalVisible(false)}>
-            Cancel
-          </Button>,
-          <Button key="confirm" type="primary" onClick={handleConfirmDonate}>
-            Confirm
-          </Button>,
-        ]}
+        footer={null}
       >
         <Paragraph>Are you sure you want to donate to this cause?</Paragraph>
-        {/* Additional user information and relief goods data can be displayed here */}
+        <Form
+          name="Donate Now"
+          onFinish={onFinish}
+          initialValues={{
+            amount: 0, // Set initial value of amount field
+          }}
+        >
+          <Form.Item
+            name="amount"
+            label="Amount"
+            rules={[
+              {
+                required: true,
+                message: "Please enter the amount",
+              },
+            ]}
+          >
+            <Input type="number" min={0} />
+          </Form.Item>
+
+          <Form.Item>
+            <Button type="primary" htmlType="submit">
+              Update
+            </Button>
+          </Form.Item>
+        </Form>
       </Modal>
     </div>
   );
