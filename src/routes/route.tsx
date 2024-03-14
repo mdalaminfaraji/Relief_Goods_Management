@@ -6,6 +6,8 @@ import Register from "../pages/auth/Register";
 import ReliefDetails from "../pages/reliefs/ReliefDetails";
 import ReliefGoods from "../pages/reliefs/ReliefGoods";
 import DashboardLayout from "../layout/DashboardLayout";
+import CreateSupply from "../pages/dashboard/CreateSupply/CreateSupply";
+import Supplies from "../pages/dashboard/Supplies/Supplies";
 
 export const router = createBrowserRouter([
   {
@@ -41,6 +43,14 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <p>I am</p>,
+      },
+      {
+        path: "create-supply",
+        element: <CreateSupply />,
+      },
+      {
+        path: "supplies",
+        element: <Supplies />,
       },
     ],
   },

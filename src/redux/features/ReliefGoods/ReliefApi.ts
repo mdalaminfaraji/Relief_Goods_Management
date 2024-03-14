@@ -20,7 +20,21 @@ const ReliefApi = baseApi.injectEndpoints({
         };
       },
     }),
+    createSupply: builder.mutation({
+      query: (body) => {
+        console.log(body);
+        return {
+          url: `/create-supply`,
+          method: "POST",
+          body: body,
+        };
+      },
+    }),
   }),
 });
 
-export const { useGetAllSupplyQuery, useGetSingleSupplyQuery } = ReliefApi;
+export const {
+  useGetAllSupplyQuery,
+  useGetSingleSupplyQuery,
+  useCreateSupplyMutation,
+} = ReliefApi;

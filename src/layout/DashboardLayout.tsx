@@ -1,24 +1,32 @@
-import React from "react";
-import {
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-} from "@ant-design/icons";
+import { DatabaseOutlined, UploadOutlined } from "@ant-design/icons";
 import { Layout, Menu, theme } from "antd";
-import { Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
-const { Header, Content, Sider } = Layout;
+const { Content, Sider } = Layout;
+
+// const items = [
+//   UserOutlined,
+//   VideoCameraOutlined,
+//   UploadOutlined,
+//   UserOutlined,
+// ].map((icon, index) => ({
+//   key: String(index + 1),
+//   icon: React.createElement(icon),
+//   label: `nav ${index + 1}`,
+// }));
 
 const items = [
-  UserOutlined,
-  VideoCameraOutlined,
-  UploadOutlined,
-  UserOutlined,
-].map((icon, index) => ({
-  key: String(index + 1),
-  icon: React.createElement(icon),
-  label: `nav ${index + 1}`,
-}));
+  {
+    key: 1,
+    icon: <UploadOutlined />,
+    label: <NavLink to="/dashboard/create-supply">Create Supply</NavLink>,
+  },
+  {
+    key: 2,
+    icon: <DatabaseOutlined />,
+    label: <NavLink to="/dashboard/supplies">Supplies</NavLink>,
+  },
+];
 
 const DashboardLayout = () => {
   const {
@@ -37,7 +45,17 @@ const DashboardLayout = () => {
         }}
         style={{ height: "100vh" }}
       >
-        <div className="demo-logo-vertical" />
+        <div
+          style={{
+            color: "white",
+            height: "4rem",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <h2>Relief Goods</h2>
+        </div>
         <Menu
           theme="dark"
           mode="inline"
@@ -46,7 +64,6 @@ const DashboardLayout = () => {
         />
       </Sider>
       <Layout>
-        <Header style={{ padding: 0, background: colorBgContainer }} />
         <Content style={{ margin: "24px 16px 0" }}>
           <div
             style={{
