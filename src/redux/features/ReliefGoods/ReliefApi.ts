@@ -22,13 +22,31 @@ const ReliefApi = baseApi.injectEndpoints({
     }),
     createSupply: builder.mutation({
       query: (body) => {
-        console.log(body);
         return {
           url: `/create-supply`,
           method: "POST",
           body: body,
         };
       },
+    }),
+    EditSupply: builder.mutation({
+      query: (data) => {
+        return {
+          url: `/edit-supply/${data.id}`,
+          method: "PUT",
+          body: data.body,
+        };
+      },
+      invalidatesTags: ["ReliefGoods"],
+    }),
+    deleteSupply: builder.mutation({
+      query: (id) => {
+        return {
+          url: `/delete-supply/${id}`,
+          method: "DELETE",
+        };
+      },
+      invalidatesTags: ["ReliefGoods"],
     }),
   }),
 });
@@ -37,4 +55,6 @@ export const {
   useGetAllSupplyQuery,
   useGetSingleSupplyQuery,
   useCreateSupplyMutation,
+  useDeleteSupplyMutation,
+  useEditSupplyMutation,
 } = ReliefApi;

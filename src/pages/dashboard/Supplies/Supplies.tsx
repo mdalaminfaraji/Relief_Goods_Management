@@ -1,11 +1,36 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
-import { useGetAllSupplyQuery } from "../../../redux/features/ReliefGoods/ReliefApi";
+import {
+  useDeleteSupplyMutation,
+  useEditSupplyMutation,
+  useGetAllSupplyQuery,
+} from "../../../redux/features/ReliefGoods/ReliefApi";
 import { Table, Button, Modal } from "antd";
+import EditSupplyForm from "./EditSupplyForm";
+type Supply = {
+  _id: string;
+  amount: string;
+  category: string;
+  description: string;
+  imageUrl: string;
+  title: string;
+};
 const Supplies = () => {
-  const [selectedSupply, setSelectedSupply] = useState(null);
-  const [isEditModalVisible, setIsEditModalVisible] = useState(false);
-  const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
+  const [selectedSupply, setSelectedSupply] = useState<Supply>({
+    _id: "",
+    amount: "",
+    category: "",
+    description: "",
+    imageUrl: "",
+    title: "",
+  });
+  const [isEditModalVisible, setIsEditModalVisible] = useState<boolean>(false);
+  const [isDeleteModalVisible, setIsDeleteModalVisible] =
+    useState<boolean>(false);
+  const [editId, setEditId] = useState<string>("");
+  const [deleteId, setDeleteId] = useState<string>("");
+  const [editSupply] = useEditSupplyMutation();
+  const [deleteSupply] = useDeleteSupplyMutation();
   const { data, isLoading, isError } = useGetAllSupplyQuery(undefined);
   if (isLoading) {
     return <p>Loading............</p>;
@@ -34,9 +59,13 @@ const Supplies = () => {
     {
       title: "Action",
       key: "action",
-      render: (record: any) => (
+      render: (record: Supply) => (
         <span>
-          <Button type="primary" onClick={() => handleEdit(record)}>
+          <Button
+            style={{ marginRight: "5px" }}
+            type="primary"
+            onClick={() => handleEdit(record)}
+          >
             Edit
           </Button>
           <Button type="default" onClick={() => handleDelete(record)}>
@@ -46,33 +75,44 @@ const Supplies = () => {
       ),
     },
   ];
-  const handleEdit = (record: any) => {
+  const handleEdit = (record: Supply) => {
+    setEditId(record._id);
     setSelectedSupply(record);
     setIsEditModalVisible(true);
   };
 
-  const handleDelete = (record: any) => {
+  const handleDelete = (record: Supply) => {
     setSelectedSupply(record);
+    setDeleteId(record._id);
+
     setIsDeleteModalVisible(true);
   };
 
   const confirmDelete = () => {
+    deleteSupply(deleteId);
     // Logic to delete the selected supply post
     setIsDeleteModalVisible(false);
+  };
+  const handleSaveEdit = (editedSupply: Supply) => {
+    // Logic to update the supply post on backend
+    const data = {
+      body: editedSupply,
+      id: editId,
+    };
+    editSupply(data);
+    console.log(editedSupply, editId);
+    setIsEditModalVisible(false);
   };
   return (
     <div>
       <Table columns={columns} dataSource={suppliesData} />
 
-      <Modal
-        title="Edit Supply"
+      <EditSupplyForm
+        supply={selectedSupply}
         visible={isEditModalVisible}
         onCancel={() => setIsEditModalVisible(false)}
-        footer={null}
-      >
-        {/* Edit supply form component */}
-        {/* Pass selectedSupply as prop to the form component */}
-      </Modal>
+        onSave={handleSaveEdit}
+      />
 
       <Modal
         title="Delete Supply"
