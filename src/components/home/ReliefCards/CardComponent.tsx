@@ -19,7 +19,7 @@ const CardComponent = () => {
   return (
     <div>
       <Title style={{ textAlign: "center", marginTop: "20px" }}>
-        Welcome to Relief Goods Page
+        Relief Goods Posts
       </Title>
       <ReliefCards posts={postsData?.data} />
     </div>

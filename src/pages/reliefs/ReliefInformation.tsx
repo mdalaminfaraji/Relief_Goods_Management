@@ -20,7 +20,7 @@ const ReliefInformation = ({ data }: any) => {
     <div
       style={{ maxWidth: "1280px", margin: "0 auto", paddingInline: "10px" }}
     >
-      <h1 style={{ textAlign: "center", margin: "20px 0" }}>
+      <h1 style={{ textAlign: "center", margin: "30px 0" }}>
         Relief Goods Details Information
       </h1>
       <Row gutter={[16, 16]} justify="center" align="middle">

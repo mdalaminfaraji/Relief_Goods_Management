@@ -27,14 +27,18 @@ const ReliefCards: React.FC<Props> = ({ posts }) => {
               cover={<img alt={post.title} src={post.imageUrl} />}
             >
               <Meta
+                style={{ paddingBottom: "10px" }}
                 title={post.title}
                 description={`Category: ${post.category}`}
               />
+
               <p>Amount: {post.amount}</p>
-              <Link to={`/relief-details/${post._id}`}>View Details</Link>
-              {/* <Button type="primary" style={{ marginRight: "10px" }}>
-                View Detail
-              </Button> */}
+              <Link to={`/relief-details/${post._id}`}>
+                {" "}
+                <Button type="primary" style={{ marginTop: "10px" }}>
+                  View Detail
+                </Button>
+              </Link>
             </Card>
           </Col>
         ))}

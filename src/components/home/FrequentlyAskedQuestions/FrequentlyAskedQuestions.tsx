@@ -65,7 +65,9 @@ const items: CollapseProps["items"] = [
 ];
 const FrequentlyAskedQuestions = () => {
   return (
-    <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
+    <div
+      style={{ maxWidth: "1280px", margin: "0 auto", paddingInline: "20px" }}
+    >
       <h1 style={{ textAlign: "center", margin: "30px 0" }}>
         Frequently Asked Questions
       </h1>

@@ -56,7 +56,9 @@ const photos = [
 const ReliefGallery: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
+    <div
+      style={{ maxWidth: "1280px", margin: "0 auto", paddingInline: "20px" }}
+    >
       <h1 style={{ textAlign: "center", margin: "20px 0" }}>
         Relief Goods Photo Gallery
       </h1>
