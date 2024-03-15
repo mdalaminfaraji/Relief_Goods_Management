@@ -13,7 +13,7 @@ const ProviderTestimonials = ({ testimonials }: any) => {
     <div
       className="provider-testimonials"
       data-aos="fade-up"
-      style={{ maxWidth: "1280px", margin: "0 auto", paddingInline: "20px" }}
+      style={{ maxWidth: "1280px", margin: "40px auto", paddingInline: "20px" }}
     >
       <h2 style={{ textAlign: "center", margin: "20px 0 10px 0" }}>
         Provider Testimonials
