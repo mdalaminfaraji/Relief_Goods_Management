@@ -4,10 +4,11 @@ import { Layout, Menu, Button, Avatar } from "antd";
 import { Link, useLocation } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { selectCurrentUser, setUser } from "../redux/features/auth/authSlice";
+import { MoonOutlined, SunOutlined } from "@ant-design/icons";
 
 const { Header } = Layout;
 
-const Navbar = () => {
+const Navbar = ({ handleClick, isDarkMode }: any) => {
   const user = useAppSelector(selectCurrentUser);
   const dispatch = useAppDispatch();
   const location = useLocation();
@@ -44,6 +45,11 @@ const Navbar = () => {
       >
         <Menu.Item key="/relief-goods">
           <Link to="/relief-goods">All Relief Goods</Link>
+        </Menu.Item>
+        <Menu.Item>
+          <Button onClick={handleClick} size="small">
+            {isDarkMode ? <SunOutlined /> : <MoonOutlined />}
+          </Button>
         </Menu.Item>
         {user?.email ? (
           <>

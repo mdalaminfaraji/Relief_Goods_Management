@@ -7,18 +7,20 @@ import FrequentlyAskedQuestions from "../../components/home/FrequentlyAskedQuest
 import ReliefGallery from "../../components/home/Gallery/ReliefGallery";
 import CardComponent from "../../components/home/ReliefCards/CardComponent";
 import ProviderTestimonials from "../../components/home/Testmonial/ProviderTestiminals";
-import testimonialsData from "../../utils/testimonialsData.json";
+
 const Home = () => {
   return (
-    <Card>
+    <>
       <Banner />
-      <CardComponent />
-      <ProviderTestimonials testimonials={testimonialsData} />
-      <ReliefGallery />
-      <WhatWeDoSection />
-      <FrequentlyAskedQuestions />
-      <DistributionCenterLocation />
-    </Card>
+      <Card style={{ padding: "0px" }}>
+        <CardComponent />
+        <ProviderTestimonials />
+        <ReliefGallery />
+        <WhatWeDoSection />
+        <FrequentlyAskedQuestions />
+        <DistributionCenterLocation />
+      </Card>
+    </>
   );
 };
 

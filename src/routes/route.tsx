@@ -10,6 +10,7 @@ import CreateSupply from "../pages/dashboard/CreateSupply/CreateSupply";
 import Supplies from "../pages/dashboard/Supplies/Supplies";
 import DashboardChart from "../pages/dashboard/Chart/DashboardChart";
 import ProtectedRoute from "./ProtectedRoute";
+import CreateTestimonial from "../pages/dashboard/CreateTestimonial/CreateTestimonial";
 
 export const router = createBrowserRouter([
   {
@@ -57,6 +58,10 @@ export const router = createBrowserRouter([
       {
         path: "supplies",
         element: <Supplies />,
+      },
+      {
+        path: "create-testimonial",
+        element: <CreateTestimonial />,
       },
     ],
   },

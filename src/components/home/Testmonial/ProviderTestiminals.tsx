@@ -1,14 +1,23 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Card, Avatar } from "antd";
-import { UserOutlined } from "@ant-design/icons";
+import men from "../../../../public/men.jpeg";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "./styles.css";
 import { Pagination } from "swiper/modules";
+import { useGetAllTestimonialQuery } from "../../../redux/features/ReliefGoods/ReliefTestimonialApi";
 
-const ProviderTestimonials = ({ testimonials }: any) => {
+const ProviderTestimonials = () => {
+  const { data, isLoading, isError } = useGetAllTestimonialQuery(undefined);
+  if (isLoading) {
+    return <p>Loading.....</p>;
+  }
+  if (isError) {
+    return <p>Something Went wrong.........</p>;
+  }
+  console.log(data);
   return (
     <div
       className="provider-testimonials"
@@ -42,12 +51,11 @@ const ProviderTestimonials = ({ testimonials }: any) => {
         modules={[Pagination]}
         className="mySwiper"
       >
-        {testimonials.map((testimonial: any) => (
-          <SwiperSlide key={testimonial.id}>
+        {data?.data.map((testimonial: any) => (
+          <SwiperSlide key={testimonial._id}>
             <Card hoverable>
               <Avatar
                 size={64}
-                icon={<UserOutlined />}
                 src={testimonial.imageUrl}
                 alt={testimonial.fullName}
               />

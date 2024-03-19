@@ -1,6 +1,7 @@
 import {
   DatabaseOutlined,
   HomeOutlined,
+  PlusOutlined,
   UploadOutlined,
 } from "@ant-design/icons";
 import { Layout, Menu } from "antd";
@@ -34,6 +35,13 @@ const items = [
     key: 3,
     icon: <HomeOutlined />,
     label: <NavLink to="/">Home</NavLink>,
+  },
+  {
+    key: 4,
+    icon: <PlusOutlined />,
+    label: (
+      <NavLink to="/dashboard/create-testimonial">Create Testimonial</NavLink>
+    ),
   },
 ];
 

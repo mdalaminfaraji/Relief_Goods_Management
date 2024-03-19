@@ -1,8 +1,9 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "./layout/Navbar";
 import Footer from "./components/home/Footer/Footer";
-import { ConfigProvider, theme, Button, Card } from "antd";
+import { ConfigProvider, theme, Button } from "antd";
 import { useState } from "react";
+
 function App() {
   const { defaultAlgorithm, darkAlgorithm } = theme;
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -15,10 +16,7 @@ function App() {
         algorithm: isDarkMode ? darkAlgorithm : defaultAlgorithm,
       }}
     >
-      <Button onClick={handleClick}>
-        Change Theme to {isDarkMode ? "Light" : "Dark"}
-      </Button>
-      <Navbar />
+      <Navbar handleClick={handleClick} isDarkMode={isDarkMode} />
       <Outlet />
       <Footer />
     </ConfigProvider>
