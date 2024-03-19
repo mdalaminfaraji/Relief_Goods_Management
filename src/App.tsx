@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "./layout/Navbar";
 import Footer from "./components/home/Footer/Footer";
-import { ConfigProvider, theme, Button } from "antd";
+import { ConfigProvider, theme } from "antd";
 import { useState } from "react";
 
 function App() {
@@ -18,6 +18,7 @@ function App() {
     >
       <Navbar handleClick={handleClick} isDarkMode={isDarkMode} />
       <Outlet />
+
       <Footer />
     </ConfigProvider>
   );

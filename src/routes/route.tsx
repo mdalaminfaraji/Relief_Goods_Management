@@ -11,6 +11,7 @@ import Supplies from "../pages/dashboard/Supplies/Supplies";
 import DashboardChart from "../pages/dashboard/Chart/DashboardChart";
 import ProtectedRoute from "./ProtectedRoute";
 import CreateTestimonial from "../pages/dashboard/CreateTestimonial/CreateTestimonial";
+import Volunteer from "../pages/volunteer/Volunteer";
 
 export const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([
       {
         path: "relief-goods",
         element: <ReliefGoods />,
+      },
+      {
+        path: "volunteer",
+        element: <Volunteer />,
       },
     ],
   },

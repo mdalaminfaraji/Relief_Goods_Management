@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Card, Avatar } from "antd";
-import men from "../../../../public/men.jpeg";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
