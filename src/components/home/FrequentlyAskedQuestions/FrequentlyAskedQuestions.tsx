@@ -1,5 +1,5 @@
 import type { CollapseProps } from "antd";
-import { Collapse } from "antd";
+import { Card, Collapse } from "antd";
 
 const items: CollapseProps["items"] = [
   {
@@ -65,14 +65,14 @@ const items: CollapseProps["items"] = [
 ];
 const FrequentlyAskedQuestions = () => {
   return (
-    <div
-      style={{ maxWidth: "1280px", margin: "0 auto", paddingInline: "20px" }}
+    <Card
+      style={{ maxWidth: "1280px", margin: "20px auto", paddingInline: "20px" }}
     >
       <h1 style={{ textAlign: "center", margin: "30px 0" }}>
         Frequently Asked Questions
       </h1>
       <Collapse accordion items={items} />
-    </div>
+    </Card>
   );
 };
 

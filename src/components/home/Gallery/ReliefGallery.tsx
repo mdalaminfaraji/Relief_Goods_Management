@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Gallery from "react-photo-gallery";
 import "lightbox.js-react/dist/index.css";
 import { SlideshowLightbox } from "lightbox.js-react";
+import { Card } from "antd";
 
 // https://i.ibb.co/zQQ78hx/SDG-1-No-Poverty-0.jpg
 // https://i.ibb.co/9t3gWWX/R.jpg
@@ -56,7 +57,7 @@ const photos = [
 const ReliefGallery: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div
+    <Card
       style={{ maxWidth: "1280px", margin: "40px auto", paddingInline: "20px" }}
     >
       <h1 style={{ textAlign: "center", margin: "40px 0" }}>
@@ -77,7 +78,7 @@ const ReliefGallery: React.FC = () => {
           setIsOpen(false);
         }}
       ></SlideshowLightbox>
-    </div>
+    </Card>
   );
 };
 

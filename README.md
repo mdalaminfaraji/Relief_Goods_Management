@@ -6,6 +6,8 @@ Welcome to the Relief Goods Management Platform! This platform serves as a vital
 
 Visit the live version of the application [here](https://65f37e612fdf7807337a1c1c--spiffy-griffin-1df341.netlify.app/).
 
+<!-- https://github.com/mdalaminfaraji/Relief_Goods_Management -->
+
 ## Features
 
 - **Home Page**: Displays essential information about the platform's mission, key features, and testimonials.

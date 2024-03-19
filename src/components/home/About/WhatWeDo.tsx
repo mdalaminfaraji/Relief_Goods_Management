@@ -1,8 +1,8 @@
-import { Row, Col } from "antd";
+import { Row, Col, Card } from "antd";
 import { Player } from "@lottiefiles/react-lottie-player";
 const WhatWeDoSection = () => {
   return (
-    <div
+    <Card
       style={{ maxWidth: "1280px", margin: "0 auto", paddingInline: "10px" }}
     >
       <h1 style={{ textAlign: "center", margin: "20px 0" }}>What We Do</h1>
@@ -49,7 +49,7 @@ const WhatWeDoSection = () => {
           />
         </Col>
       </Row>
-    </div>
+    </Card>
   );
 };
 

@@ -1,9 +1,9 @@
-import { Row, Col } from "antd";
+import { Row, Col, Card } from "antd";
 import { Player } from "@lottiefiles/react-lottie-player";
 const DistributionCenterLocation = () => {
   return (
-    <div
-      style={{ maxWidth: "1280px", margin: "0 auto", paddingInline: "10px" }}
+    <Card
+      style={{ maxWidth: "1280px", margin: "20px auto", paddingInline: "10px" }}
     >
       <h1 style={{ textAlign: "center", margin: "30px 0" }}>
         Distribution Center Location
@@ -60,7 +60,7 @@ const DistributionCenterLocation = () => {
           </div>
         </Col>
       </Row>
-    </div>
+    </Card>
   );
 };
 

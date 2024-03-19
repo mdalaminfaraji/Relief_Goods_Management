@@ -1,3 +1,4 @@
+import { Card } from "antd";
 import WhatWeDoSection from "../../components/home/About/WhatWeDo";
 import Banner from "../../components/home/Banner/Banner";
 import DistributionCenterLocation from "../../components/home/DistributionLocation/DistributionCenterLocation";
@@ -9,7 +10,7 @@ import ProviderTestimonials from "../../components/home/Testmonial/ProviderTesti
 import testimonialsData from "../../utils/testimonialsData.json";
 const Home = () => {
   return (
-    <div>
+    <Card>
       <Banner />
       <CardComponent />
       <ProviderTestimonials testimonials={testimonialsData} />
@@ -17,7 +18,7 @@ const Home = () => {
       <WhatWeDoSection />
       <FrequentlyAskedQuestions />
       <DistributionCenterLocation />
-    </div>
+    </Card>
   );
 };
 
