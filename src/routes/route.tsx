@@ -12,6 +12,7 @@ import DashboardChart from "../pages/dashboard/Chart/DashboardChart";
 import ProtectedRoute from "./ProtectedRoute";
 import CreateTestimonial from "../pages/dashboard/CreateTestimonial/CreateTestimonial";
 import Volunteer from "../pages/volunteer/Volunteer";
+import AboutUs from "../pages/aboutUs/AboutUs";
 
 export const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ export const router = createBrowserRouter([
       {
         path: "volunteer",
         element: <Volunteer />,
+      },
+      {
+        path: "about-us",
+        element: <AboutUs />,
       },
     ],
   },
