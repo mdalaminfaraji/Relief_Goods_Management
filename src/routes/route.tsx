@@ -13,6 +13,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import CreateTestimonial from "../pages/dashboard/CreateTestimonial/CreateTestimonial";
 import Volunteer from "../pages/volunteer/Volunteer";
 import AboutUs from "../pages/aboutUs/AboutUs";
+import Community from "../pages/community/Community";
 
 export const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ export const router = createBrowserRouter([
       {
         path: "about-us",
         element: <AboutUs />,
+      },
+      {
+        path: "community",
+        element: <Community />,
       },
     ],
   },
