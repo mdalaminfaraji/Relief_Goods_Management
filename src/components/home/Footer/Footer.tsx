@@ -8,7 +8,7 @@ import { Row, Col, Divider, Card } from "antd";
 
 const Footer = () => {
   return (
-    <Card style={{ borderRadius: "0px" }}>
+    <Card style={{ borderRadius: "0px", border: "0px" }}>
       <div
         style={{
           maxWidth: "1280px",

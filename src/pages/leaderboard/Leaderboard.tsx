@@ -2,17 +2,18 @@
 import { Avatar, Divider, Layout, Table } from "antd";
 import { useGetAllDonationQuery } from "../../redux/features/ReliefGoods/ReliefDonationApi";
 import Title from "antd/es/typography/Title";
+import Loader from "../../utils/Loader";
 const { Content } = Layout;
 const LeaderBoard = () => {
   const { data, isLoading, isError } = useGetAllDonationQuery(undefined);
   if (isLoading) {
-    return <p>Loading......</p>;
+    return <Loader />;
   }
 
   if (isError) {
     return <p>something Went Wrong.</p>;
   }
-  console.log(data);
+
   const columns = [
     {
       title: "Donor",

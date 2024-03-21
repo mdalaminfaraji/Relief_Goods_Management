@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <>
       <Banner />
-      <Card style={{ padding: "0px" }}>
+      <Card style={{ padding: "0px", borderRadius: "0px" }}>
         <CardComponent />
         <ProviderTestimonials />
         <ReliefGallery />

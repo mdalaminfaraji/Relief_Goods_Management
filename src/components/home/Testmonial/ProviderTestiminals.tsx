@@ -7,11 +7,12 @@ import "swiper/css/pagination";
 import "./styles.css";
 import { Pagination } from "swiper/modules";
 import { useGetAllTestimonialQuery } from "../../../redux/features/ReliefGoods/ReliefTestimonialApi";
+import Loader from "../../../utils/Loader";
 
 const ProviderTestimonials = () => {
   const { data, isLoading, isError } = useGetAllTestimonialQuery(undefined);
   if (isLoading) {
-    return <p>Loading.....</p>;
+    return <Loader />;
   }
   if (isError) {
     return <p>Something Went wrong.........</p>;
@@ -52,7 +53,7 @@ const ProviderTestimonials = () => {
       >
         {data?.data.map((testimonial: any) => (
           <SwiperSlide key={testimonial._id}>
-            <Card hoverable>
+            <Card hoverable style={{ borderRadius: "0px" }}>
               <Avatar
                 size={64}
                 src={testimonial.imageUrl}

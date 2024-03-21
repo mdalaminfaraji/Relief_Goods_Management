@@ -5,6 +5,7 @@ import {
   useGetAllCommunityPostsQuery,
 } from "../../redux/features/communityPost/CommunityApi";
 import Title from "antd/es/typography/Title";
+import Loader from "../../utils/Loader";
 
 const { Content } = Layout;
 type FormData = {
@@ -17,7 +18,7 @@ const Community = () => {
   const [createCommunityPost] = useCreateCommunityPostMutation();
   const { data, isLoading, isError } = useGetAllCommunityPostsQuery(undefined);
   if (isLoading) {
-    return <p>Loading.....</p>;
+    return <Loader />;
   }
   if (isError) {
     return <p>Something Went wrong.........</p>;

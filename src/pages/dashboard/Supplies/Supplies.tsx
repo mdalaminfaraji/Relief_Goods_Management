@@ -7,6 +7,7 @@ import {
 } from "../../../redux/features/ReliefGoods/ReliefApi";
 import { Table, Button, Modal, Divider, message } from "antd";
 import EditSupplyForm from "./EditSupplyForm";
+import Loader from "../../../utils/Loader";
 type Supply = {
   _id: string;
   amount: string;
@@ -33,7 +34,7 @@ const Supplies = () => {
   const [deleteSupply] = useDeleteSupplyMutation();
   const { data, isLoading, isError } = useGetAllSupplyQuery(undefined);
   if (isLoading) {
-    return <p>Loading............</p>;
+    return <Loader />;
   }
   if (isError) {
     return <p>something went Wrong...........</p>;

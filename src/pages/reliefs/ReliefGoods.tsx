@@ -1,21 +1,22 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Button, Card, Col, Row } from "antd";
+import { Button, Card, Col, Row, Spin } from "antd";
 import { useGetAllSupplyQuery } from "../../redux/features/ReliefGoods/ReliefApi";
 import Meta from "antd/es/card/Meta";
 import { Link } from "react-router-dom";
 import Title from "antd/es/typography/Title";
+import Loader from "../../utils/Loader";
 
 const ReliefGoods = () => {
   const { data, isLoading, isError } = useGetAllSupplyQuery(undefined);
   if (isLoading) {
-    return <p>Loading......</p>;
+    return <Loader />;
   }
 
   if (isError) {
     return <p>something Went Wrong.</p>;
   }
   return (
-    <Card>
+    <Card style={{ borderRadius: "0px" }}>
       <div
         style={{ maxWidth: "1280px", margin: "0 auto", paddingInline: "20px" }}
       >

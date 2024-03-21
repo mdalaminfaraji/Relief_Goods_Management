@@ -1,11 +1,17 @@
-import { Card, Divider, Table } from "antd";
+import { Card, Divider, Spin, Table } from "antd";
 import { useGetAllVolunteerQuery } from "../../redux/features/volunteer/volunteerApi";
 import Title from "antd/es/typography/Title";
 
 const AboutUs = () => {
   const { data, isLoading, isError } = useGetAllVolunteerQuery(undefined);
   if (isLoading) {
-    return <p>Loading.....</p>;
+    return (
+      <div style={{ textAlign: "center", marginTop: "50px" }}>
+        <Spin tip="Loading..." size="large">
+          <div className="content" />
+        </Spin>
+      </div>
+    );
   }
   if (isError) {
     return <p>Something Went wrong.........</p>;

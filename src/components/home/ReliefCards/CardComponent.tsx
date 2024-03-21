@@ -1,6 +1,7 @@
 import Title from "antd/es/typography/Title";
 import { useGetAllSupplyQuery } from "../../../redux/features/ReliefGoods/ReliefApi";
 import ReliefCards from "./ReliefCards";
+import Loader from "../../../utils/Loader";
 
 const CardComponent = () => {
   const {
@@ -9,7 +10,7 @@ const CardComponent = () => {
     isError,
   } = useGetAllSupplyQuery(undefined);
   if (isLoading) {
-    return <p>Loading......</p>;
+    return <Loader />;
   }
 
   if (isError) {

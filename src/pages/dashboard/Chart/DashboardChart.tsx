@@ -10,6 +10,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { useGetAllSupplyQuery } from "../../../redux/features/ReliefGoods/ReliefApi";
+import Loader from "../../../utils/Loader";
 
 const COLORS = [
   "#0088FE",
@@ -45,7 +46,7 @@ const DashboardChart = () => {
     isError,
   } = useGetAllSupplyQuery(undefined);
   if (isLoading) {
-    return <p>Loading........</p>;
+    return <Loader />;
   }
   if (isError) {
     return <p>Something went wrong</p>;
