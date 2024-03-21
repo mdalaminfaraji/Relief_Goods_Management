@@ -4,7 +4,7 @@ Welcome to the Relief Goods Management Platform! This platform serves as a vital
 
 ## Live URL
 
-Visit the live version of the application [here](https://65f37e612fdf7807337a1c1c--spiffy-griffin-1df341.netlify.app/).
+Visit the live version of the application [here](https://classy-kitten-b9d0ab.netlify.app/).
 
 <!-- https://github.com/mdalaminfaraji/Relief_Goods_Management -->
 
