@@ -22,7 +22,7 @@ const Banner = () => {
         pagination={{
           clickable: true,
         }}
-        autoplay={{ delay: 3000 }}
+        autoplay={{ delay: 5000 }}
         modules={[EffectFade, Navigation, Pagination, Autoplay]}
         className="mySwiper"
       >

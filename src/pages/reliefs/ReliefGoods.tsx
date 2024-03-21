@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Button, Card, Col, Row, Spin } from "antd";
+import { Button, Card, Col, Row } from "antd";
 import { useGetAllSupplyQuery } from "../../redux/features/ReliefGoods/ReliefApi";
 import Meta from "antd/es/card/Meta";
 import { Link } from "react-router-dom";

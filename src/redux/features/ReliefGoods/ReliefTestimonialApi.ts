@@ -19,6 +19,7 @@ const ReliefTestimonialApi = baseApi.injectEndpoints({
           body: body,
         };
       },
+      invalidatesTags: ["ReliefTestimonial"],
     }),
   }),
 });

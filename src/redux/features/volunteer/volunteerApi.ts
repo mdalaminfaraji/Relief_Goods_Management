@@ -19,6 +19,7 @@ const volunteerApi = baseApi.injectEndpoints({
           body: body,
         };
       },
+      invalidatesTags: ["volunteer"],
     }),
   }),
 });

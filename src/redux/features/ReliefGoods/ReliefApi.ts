@@ -28,6 +28,7 @@ const ReliefApi = baseApi.injectEndpoints({
           body: body,
         };
       },
+      invalidatesTags: ["ReliefGoods"],
     }),
 
     EditSupply: builder.mutation({
