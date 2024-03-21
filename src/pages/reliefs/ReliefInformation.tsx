@@ -14,10 +14,15 @@ import {
 import Paragraph from "antd/es/typography/Paragraph";
 import { useState } from "react";
 import { useEditSupplyMutation } from "../../redux/features/ReliefGoods/ReliefApi";
+import { useAppSelector } from "../../redux/hooks";
+import { selectCurrentUser } from "../../redux/features/auth/authSlice";
+import { useCreateDonationMutation } from "../../redux/features/ReliefGoods/ReliefDonationApi";
 
 const ReliefInformation = ({ data }: any) => {
+  const user = useAppSelector(selectCurrentUser);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [editSupply] = useEditSupplyMutation();
+  const [createDonation] = useCreateDonationMutation();
   const handleDonateNow = () => {
     setIsModalVisible(true);
   };
@@ -32,9 +37,15 @@ const ReliefInformation = ({ data }: any) => {
         body: { amount: `${previousAmount + newAmount}` },
         id: data?.data?._id,
       };
-      const res = await editSupply(updateData);
-      console.log(res);
-      message.success("Donation  successfully Added");
+      const resSupply: any = await editSupply(updateData);
+      const resDonation: any = await createDonation(value);
+      if (resSupply.data.success && resDonation.data.success) {
+        message.success("Donation  successfully Added");
+      } else {
+        message.error("Failed to Donation ");
+      }
+      console.log(resDonation);
+
       setIsModalVisible(false);
 
       window.location.href = "/dashboard";
@@ -112,9 +123,24 @@ const ReliefInformation = ({ data }: any) => {
             name="Donate Now"
             onFinish={onFinish}
             initialValues={{
-              amount: 0, // Set initial value of amount field
+              amount: 0,
+              category: data?.data?.category,
+              email: user?.email,
+              userName: "",
             }}
           >
+            <Form.Item
+              name="category"
+              label="Category"
+              rules={[
+                {
+                  required: true,
+                  message: "Please enter Category",
+                },
+              ]}
+            >
+              <Input />
+            </Form.Item>
             <Form.Item
               name="amount"
               label="Amount"
@@ -126,6 +152,21 @@ const ReliefInformation = ({ data }: any) => {
               ]}
             >
               <Input type="number" min={0} />
+            </Form.Item>
+            <Form.Item
+              name="userName"
+              label="FullName"
+              rules={[
+                {
+                  required: true,
+                  message: "Please enter Your Name",
+                },
+              ]}
+            >
+              <Input placeholder="Enter Your Name" />
+            </Form.Item>
+            <Form.Item name="email" label="Email" rules={[{ type: "email" }]}>
+              <Input />
             </Form.Item>
 
             <Form.Item>

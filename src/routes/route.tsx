@@ -14,11 +14,14 @@ import CreateTestimonial from "../pages/dashboard/CreateTestimonial/CreateTestim
 import Volunteer from "../pages/volunteer/Volunteer";
 import AboutUs from "../pages/aboutUs/AboutUs";
 import Community from "../pages/community/Community";
+import LeaderBoard from "../pages/leaderboard/Leaderboard";
+import ErrorPage from "../pages/Error/ErrorPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
@@ -52,10 +55,15 @@ export const router = createBrowserRouter([
         path: "community",
         element: <Community />,
       },
+      {
+        path: "leaderboard",
+        element: <LeaderBoard />,
+      },
     ],
   },
   {
     path: "/dashboard",
+    errorElement: <ErrorPage />,
     element: (
       <ProtectedRoute>
         <DashboardLayout />
