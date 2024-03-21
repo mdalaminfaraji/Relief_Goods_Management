@@ -6,8 +6,6 @@ Welcome to the Relief Goods Management Platform! This platform serves as a vital
 
 Visit the live version of the application [here](https://classy-kitten-b9d0ab.netlify.app/).
 
-<!-- https://github.com/mdalaminfaraji/Relief_Goods_Management -->
-
 ## Features
 
 - **Home Page**: Displays essential information about the platform's mission, key features, and testimonials.
@@ -69,5 +67,3 @@ export default {
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
-
-# l2-b2-assignment-6-fronten-mdalaminfaraji
